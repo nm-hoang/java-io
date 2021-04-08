@@ -25,7 +25,8 @@ public class Main {
 			System.out.println("2: Update student information");
 			System.out.println("3: Delete student");
 			System.out.println("4: Show list student");
-			
+			System.out.println("5: Import file");
+			System.out.println("6: Export file");
 			System.out.print("Choose: ");
 			String line = scanner.nextLine();
 			switch(line) {
@@ -70,7 +71,13 @@ public class Main {
 					sm = file.Read();
 					break;
 				case "6":
+					file.Write(sm);
+					break;
+				case "8":
 					file.Create();
+					break;
+				case "7":
+					sm.ShowListStudent();
 					break;
 				default:
 					System.out.println("Invalid");

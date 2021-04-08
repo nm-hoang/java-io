@@ -15,7 +15,7 @@ public class StudentManage implements Serializable{
 	
 	public boolean CheckId(String Id) {
 		for(int i = 0; i<students.size(); i++) {
-			if(Id == students.get(i).getMHS()) {
+			if(students.get(i).getMHS().equals(Id)) {
 				return false;
 			}
 		}
@@ -25,11 +25,12 @@ public class StudentManage implements Serializable{
 		Scanner scanner = new Scanner(System.in);
 		Student student = new Student();	
 		String Id;
-		System.out.print("Student's ID: ");
-		Id = scanner.nextLine();
 		do {
-			System.out.print("ID already exist \n Student's ID: ");
+			System.out.print("Student's ID: ");
 			Id = scanner.nextLine();
+			if(CheckId(Id)==false) {
+				System.out.println("ID already exist");
+			}
 		}while(CheckId(Id)==false);
 		
 		this.students.add(student.Input(Id));
@@ -88,19 +89,19 @@ public class StudentManage implements Serializable{
 			for(int j=sm2.getStudents().size()-1; j>i; j--) {
 				if(Float.parseFloat(sm2.getStudents().get(j).getMHS()) < 
 					Float.parseFloat(sm2.getStudents().get(j-1).getMHS())){
-					Swap(sm2.getStudents().get(j), sm2.getStudents().get(j-1));
+					this.Swap(sm2.getStudents().get(j), sm2.getStudents().get(j-1));
 				}
 			}
 		}
+		sm2.ShowListStudent();
 		return sm2;
 	}
 	public StudentManage ListIncreaseScore() {
-		StudentManage sm2 = this;
-
+		StudentManage sm2 = new StudentManage();
+		sm2 = this;
 		for(int i=0; i<sm2.getStudents().size()-1;i++) {
 			for(int j=i+1;j<sm2.getStudents().size(); j++) {
-				if(sm2.getStudents().get(i).getDiem() >
-						sm2.getStudents().get(j).getDiem()) {
+				if(Float.compare(sm2.getStudents().get(i).getDiem(), sm2.getStudents().get(j).getDiem()) > 0) {
 					Swap(sm2.getStudents().get(i), sm2.getStudents().get(j));
 				}
 			}

@@ -25,7 +25,7 @@ public class Student implements Serializable{
 //			System.out.print("Student's ID: ");
 //			MHS = scanner.nextLine();
 //		}while(MHS.isEmpty());
-		
+		MHS = Id;
 		do {
 			System.out.print("Student's name: ");
 			TenHS = scanner.nextLine();
