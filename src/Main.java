@@ -15,6 +15,8 @@ public class Main {
 			file.Create();
 			System.out.println("Initialize file student");
 		}
+		
+//		file.Create();
 		sm = file.Read();					
 
 
@@ -39,10 +41,33 @@ public class Main {
 					sm.DeleteStudent();
 					break;
 				case "4":
-					sm.ShowListStudent();
+					System.out.println("a. Increase ID \nb. Decrease ID \nc. Increase Score \nd. Decrease Score");
+					System.out.print("Choose: ");
+					String option = scanner.nextLine();
+					switch(option) {
+						case "a": {
+							sm.ListIncreaseId().ShowListStudent();
+							break;
+						}
+						case "b": {
+							sm.ListIncreaseId().ReverseListStudent();
+							break;
+						}
+						case "c": {
+							sm.ListIncreaseScore().ShowListStudent();
+							break;
+						}
+						case "d": {
+							sm.ListIncreaseScore().ReverseListStudent();
+							break;
+						}
+						default:
+							break;
+					}
+					
 					break;
 				case "5":
-					file.Read();
+					sm = file.Read();
 					break;
 				case "6":
 					file.Create();

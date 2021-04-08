@@ -36,9 +36,9 @@ public class StudentManage implements Serializable{
 	}
 	
 	public void ShowListStudent() {
-		Student student = new Student();
+		
 		for(int i = 0; i<students.size(); i++) {
-			student.ShowStudent(students.get(i));
+			students.get(i).ShowStudent();;
 		}
 	}
 	public int GetIndexById(String id) {
@@ -74,6 +74,42 @@ public class StudentManage implements Serializable{
 		}else {
 			students.remove(index);			
 			System.out.println("Delete successful!");
+		}
+	}
+	
+	public void Swap(Student t1, Student t2) {
+		Student temp = t1;
+		t1 = t2;
+		t2 = temp;
+	}
+	public StudentManage ListIncreaseId() {
+		StudentManage sm2 = this;
+		for(int i=0; i<sm2.getStudents().size()-1; i++) {
+			for(int j=sm2.getStudents().size()-1; j>i; j--) {
+				if(Float.parseFloat(sm2.getStudents().get(j).getMHS()) < 
+					Float.parseFloat(sm2.getStudents().get(j-1).getMHS())){
+					Swap(sm2.getStudents().get(j), sm2.getStudents().get(j-1));
+				}
+			}
+		}
+		return sm2;
+	}
+	public StudentManage ListIncreaseScore() {
+		StudentManage sm2 = this;
+
+		for(int i=0; i<sm2.getStudents().size()-1;i++) {
+			for(int j=i+1;j<sm2.getStudents().size(); j++) {
+				if(sm2.getStudents().get(i).getDiem() >
+						sm2.getStudents().get(j).getDiem()) {
+					Swap(sm2.getStudents().get(i), sm2.getStudents().get(j));
+				}
+			}
+		}
+		return sm2;
+	}
+	public void ReverseListStudent() {
+		for(int i=students.size()-1; i >=0; i--) {
+			students.get(i).ShowStudent();
 		}
 	}
 }

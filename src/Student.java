@@ -50,12 +50,12 @@ public class Student implements Serializable{
 		
 		return this;
 	}
-	public void ShowStudent(Student student) {
-		System.out.println("ID: "+ student.MHS);
-		System.out.println("Name: "+ student.TenHS);
-		System.out.println("Score: "+ student.Diem);
-		System.out.println("Address: "+ student.DiaChi);
-		System.out.println("Note: "+ student.GhiChu + "\n");
+	public void ShowStudent() {
+		System.out.println("ID: "+ MHS);
+		System.out.println("Name: "+ TenHS);
+		System.out.println("Score: "+ Diem);
+		System.out.println("Address: "+ DiaChi);
+		System.out.println("Note: "+ GhiChu + "\n");
 	}
 	public void Update() {
 		Scanner scanner = new Scanner(System.in);
@@ -108,7 +108,7 @@ public class Student implements Serializable{
 	public String getTenHS() {
 		return this.TenHS;
 	}
-	public float setDiem() {
+	public float getDiem() {
 		return this.Diem;
 	}
 	public String getDiaChi() {

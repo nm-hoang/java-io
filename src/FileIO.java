@@ -16,13 +16,14 @@ public class FileIO{
 	}
 	public void Create(){
 		Student st1 = new Student("1", "hoang", 6, "Dalat", "note");
-		Student st2 = new Student("2", "nguyen", 7, "Lam Dong", "note");
+		Student st2 = new Student("2", "giang", 10, "Tien Giang", "note");
 		Student st3 = new Student("3", "minh", 8, "Sai Gon", "note");
+		Student st4 = new Student("5", "nguyen", 9, "Lam Dong", "note");
 		StudentManage sm = new StudentManage();
 		sm.students.add(st1);
 		sm.students.add(st2);
 		sm.students.add(st3);
-		
+		sm.students.add(st4);
 		System.out.println(sm);
 		File f = new File(path);
 		try {
