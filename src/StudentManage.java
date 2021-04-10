@@ -34,6 +34,7 @@ public class StudentManage implements Serializable{
 		}while(CheckId(Id)==false);
 		
 		this.students.add(student.Input(Id));
+		System.out.println("Done!\n");
 	}
 	
 	public void ShowListStudent() {
@@ -74,7 +75,7 @@ public class StudentManage implements Serializable{
 			System.out.println("ID invalid!!!");
 		}else {
 			students.remove(index);			
-			System.out.println("Delete successful!");
+			System.out.println("Delete successful!\n");
 		}
 	}
 	

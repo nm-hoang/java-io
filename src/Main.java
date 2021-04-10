@@ -12,15 +12,16 @@ public class Main {
 		File f = new File(file.getPath());
 		//Load student manage from file
 		if(!f.exists()) { 
-			file.Create();
+			file.InitializeListStudent();
 			System.out.println("Initialize file student");
 		}
 		
 //		file.Create();
-		sm = file.Read();					
+		sm = file.ReadBinaryFile();					
 
 
 		while(true) {
+			System.out.println("\n0: Initialize list student");
 			System.out.println("1: Add a student");
 			System.out.println("2: Update student information");
 			System.out.println("3: Delete student");
@@ -39,6 +40,7 @@ public class Main {
 					break;
 				}
 				case "3":
+					sm.ShowListStudent();
 					sm.DeleteStudent();
 					break;
 				case "4":
@@ -68,13 +70,13 @@ public class Main {
 					
 					break;
 				case "5":
-					sm = file.Read();
+					sm = file.ImportCSV();
 					break;
 				case "6":
-					file.Write(sm);
+					file.ExportCSV(sm);
 					break;
-				case "8":
-					file.Create();
+				case "0":
+					file.InitializeListStudent();
 					break;
 				case "7":
 					sm.ShowListStudent();
